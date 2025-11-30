@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package steam_grid.proto.v1;
+
+import "steam_grid/proto/v1/steam_grid_model.proto";
+
+service SteamGridService {
+    rpc Create(CreateSteamGridRequest) returns (CreateSteamGridResponse);
+    rpc GetById(GetByIdSteamGridRequest) returns (GetByIdSteamGridResponse);
+    rpc Delete(DeleteSteamGridRequest) returns (DeleteSteamGridResponse);
+    rpc SearchByGameName(SearchByGameNameRequest) returns (SearchByGameNameResponse);
+}
+
+message CreateSteamGridRequest {
+    SteamGridModel steam_grid = 1;
+}
+
+message CreateSteamGridResponse {
+    SteamGridModel steam_grid = 1;
+}
+
+message GetByIdSteamGridRequest {
+    string id = 1;
+}
+
+message GetByIdSteamGridResponse {
+    SteamGridModel steam_grid = 1;
+}
+
+message UpdateSteamGridRequest {
+    SteamGridModel steam_grid = 2;
+}
+
+message UpdateSteamGridResponse {
+    SteamGridModel steam_grid = 1;
+}
+
+message DeleteSteamGridRequest {
+    string id = 1;
+}
+
+message DeleteSteamGridResponse {
+
+}
+
+message SearchByGameNameRequest {
+    string game_name = 1;
+}
+
+message SearchByGameNameResponse {
+    repeated SteamGridModel steam_grids = 1;
+}

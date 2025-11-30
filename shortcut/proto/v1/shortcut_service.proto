@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package shortcut.proto.v1;
+
+import "shortcut/proto/v1/shortcut_model.proto";
+
+option csharp_namespace = "RetroGate.Protos.Shortcut.Proto.V1";
+
+service ShortcutService {
+    rpc Create (CreateRequest) returns (CreateResponse);
+    rpc GetById (GetByIdRequest) returns (GetByIdResponse);
+    rpc GetAll (GetAllShortcutsRequest) returns (GetAllShortcutsResponse);
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+    rpc Delete (DeleteRequest) returns (DeleteResponse);
+}
+
+message CreateRequest {
+    ShortcutModel shortcut = 1;
+}
+
+message CreateResponse {
+    ShortcutModel shortcut = 1;
+}
+
+message GetByIdRequest {
+    string id = 1;
+}
+
+message GetByIdResponse {
+    ShortcutModel shortcut = 1;
+}
+
+message GetAllShortcutsRequest {
+
+}
+
+message GetAllShortcutsResponse {
+    repeated ShortcutModel shortcuts = 1;
+}
+
+message UpdateRequest {
+    ShortcutModel shortcut = 1;
+}
+
+message UpdateResponse {
+    ShortcutModel shortcut = 1;
+}
+
+message DeleteRequest {
+    string id = 1;
+}
+
+message DeleteResponse {
+    
+}

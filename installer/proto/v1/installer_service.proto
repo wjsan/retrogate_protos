@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package installer.proto.v1;
+
+import "installer/proto/v1/installer_event_model.proto";
+
+option csharp_namespace = "RetroGate.Protos.Installer.Proto.V1";
+
+service InstallerService {
+    rpc Install(InstallRequest) returns (InstallResponse);
+    rpc Uninstall(UninstallRequest) returns (UninstallResponse);
+    rpc Cancel(CancelRequest) returns (CancelResponse);
+    rpc SubscribeEvents(SubscribeEventsRequest) returns (stream SubscriveEventsStream);
+    rpc GetPendingInstallations(GetPendingInstallationsRequest) returns (GetPendingInstallationsResponse);
+}
+
+message InstallRequest {
+    string game_id = 1;
+    bool replace = 2;       // If true, reinstalls even if already installed
+    bool restart_steam = 3; // If true, restarts Steam after adding shortcut
+}
+
+message InstallResponse {
+    string install_path = 1;
+}
+
+message UninstallRequest {
+    string game_id = 1;
+    bool restart_steam = 2; // If true, restarts Steam after removing shortcut
+}
+
+message UninstallResponse {
+}
+
+message CancelRequest {
+    string id = 1;
+}
+
+message CancelResponse {
+}
+
+message SubscribeEventsRequest {
+
+}
+
+message SubscriveEventsStream {
+    InstallerEventModel event = 1;
+}
+
+message GetPendingInstallationsRequest {
+
+}
+
+message GetPendingInstallationsResponse {
+    repeated string game_ids = 1;
+}

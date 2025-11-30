@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package config.proto.v1;
+
+import "config/proto/v1/config_model.proto";
+
+option csharp_namespace = "RetroGate.Protos.Config.Proto.V1";
+
+service ConfigService {
+    rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+    rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+}
+
+message GetConfigRequest {
+    // Add request fields if needed
+}
+
+message GetConfigResponse {
+    ConfigModel config = 1;
+}
+
+message SetConfigRequest {
+    ConfigModel config = 1;
+}
+
+message SetConfigResponse {
+    // Add response fields if needed
+}

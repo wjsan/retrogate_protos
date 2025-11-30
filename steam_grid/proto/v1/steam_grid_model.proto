@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package steam_grid.proto.v1;
+
+message SteamGridModel {
+    string id = 1;
+    string hero_url = 2;
+    string logo_url = 3;
+    string poster_url = 4;
+    string icon_url = 5;
+}

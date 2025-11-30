@@ -25,10 +25,10 @@ message GameModel {
     string name = 2;
     repeated string download_urls = 3;
     string executable_path = 4;
-    string image_hero_url = 5;
-    string image_poster_url = 6;
-    string image_logo_url = 7;
-    string image_icon_url = 8;
+    string hero_url = 5;
+    string poster_url = 6;
+    string logo_url = 7;
+    string icon_url = 8;
     GameInstallationMethod installation_method = 9;
     optional string settings_file = 10;
     GamePlayabilityStatus playability_status = 11;

@@ -16,8 +16,6 @@ service InstallerService {
 
 message InstallRequest {
     string game_id = 1;
-    bool replace = 2;       // If true, reinstalls even if already installed
-    bool restart_steam = 3; // If true, restarts Steam after adding shortcut
 }
 
 message InstallResponse {
@@ -26,7 +24,6 @@ message InstallResponse {
 
 message UninstallRequest {
     string game_id = 1;
-    bool restart_steam = 2; // If true, restarts Steam after removing shortcut
 }
 
 message UninstallResponse {
